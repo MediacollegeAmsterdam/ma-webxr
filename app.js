@@ -1,4 +1,26 @@
-// Use this function to setup 3D models, Images etc you need at the start of your application.
-function Setup() {
-  console.log(`Starting setup!`);
-}
+// voeg controls toe (teleport & WASD controls)
+const controls = new Controls(50);
+controls.enableMovement();
+
+// create a model
+const minecraftModel = new Model('assets/models/minecraft/scene.gltf');
+minecraftModel.setPosition(0, 1.54, -5)
+minecraftModel.setScale(0.1, 0.1, 0.1);
+minecraftModel.setRotation(0, -36.95, 0);
+
+// create a primitive (sphere)
+const sphere = new Sphere();
+sphere.setColor('green');
+sphere.setRadius(0.5);
+sphere.setPosition(-3, 0, -5);
+
+// create some text
+const testText = new Text('Mediacollege Amsterdam WebXR');
+testText.setPosition(1.5, 0, -5);
+
+// create an image
+const image = new XRImage('assets/images/sampleImage.jpg');
+image.setPosition(-1.48819, 2.45839, -5);
+
+// listen for an event
+minecraftModel.addEventListener('click', () => console.log('je klikt op mij'))

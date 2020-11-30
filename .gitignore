@@ -1,5 +1,7 @@
 .idea
 certificates
+server.pem
+run_server.py
 
 # Logs
 logs
