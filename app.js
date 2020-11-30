@@ -22,5 +22,8 @@ testText.setPosition(1.5, 0, -5);
 const image = new XRImage('assets/images/sampleImage.jpg');
 image.setPosition(-1.48819, 2.45839, -5);
 
+// create a 360 image
+const image360 = new Sky('assets/360_world.jpg');
+
 // listen for an event
-minecraftModel.addEventListener('click', () => console.log('je klikt op mij'))
+minecraftModel.addEventListener('click', () => console.log('je klikt op mij'));

@@ -224,6 +224,12 @@ class Cone extends Primitive {
     }
 }
 
+class Sky extends Primitive {
+    constructor(url) {
+        super('a-sky', url);
+    }
+}
+
 class XRImage extends Primitive {
     constructor(url) {
         super('a-image', url);
