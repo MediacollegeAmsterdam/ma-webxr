@@ -37,7 +37,11 @@ class Controls {
     }
 }
 
+// abstract class. Do not instantiate
 class VRElement {
+
+    static uniqueId = 0;
+
     setup(shouldAppendToScene = true) {
         this.scene = document.querySelector(`a-scene`);
 
@@ -52,8 +56,19 @@ class VRElement {
         this.elem.setAttribute(`rotation`, this.rotation);
         this.elem.setAttribute(`scale`, this.scale);
 
+        if(this.elem.id === '')
+            this.setId(`webxrElement${VRElement.uniqueId++}`)
+
         if (shouldAppendToScene)
             this.scene.appendChild(this.elem);
+    }
+
+    setId(newId){
+        this.elem.id = newId;
+    }
+
+    getId(){
+        return this.elem.id;
     }
 
     setElement(elementType) {
@@ -118,9 +133,12 @@ class VRElement {
         this.elem.setAttribute(`scale`, this.scale);
     }
 
-    setVisible(input) {
-        if (input) this.elem.setAttribute(`visible`, true);
-        else this.elem.setAttribute(`visible`, false);
+    setVisible(isVisible) {
+        this.elem.setAttribute(`visible`, isVisible);
+    }
+
+    setOpacity(newOpacity) {
+        this.elem.setAttribute('opacity', newOpacity);
     }
 
     addEventListener(interaction, event) {
@@ -176,8 +194,13 @@ class Text extends VRElement {
         this.elem.setAttribute(`color`, color);
     }
 
+    setFontsize(newFontSize){
+        this.elem.setAttribute(`width`, newFontSize);
+    }
+
 }
 
+// abstract class. Do not instantiate
 class Primitive extends VRElement {
     constructor(type, url = '') {
         super();
@@ -198,6 +221,76 @@ class Primitive extends VRElement {
         this.elem.setAttribute(`color`, color);
     }
 
+}
+
+// abstract class. Do not instantiate
+class Light extends VRElement {
+    constructor(type = 'ambient') {
+        super();
+        this.setElement('a-light');
+        this.elem.setAttribute('type', type);
+        super.setup();
+    }
+
+    setIntensity(intensity) {
+        this.elem.setAttribute('intensity', intensity);
+    }
+
+    setColor(color) {
+        this.elem.setAttribute(`color`, color);
+    }
+}
+
+class AmbientLight extends Light {
+    constructor() {
+        super();
+    }
+}
+
+class DirectionalLight extends Light {
+    constructor() {
+        super('directional');
+    }
+}
+
+class PointLight extends Light {
+    constructor() {
+        super('point');
+    }
+
+    setDecay(newDecay){
+        this.elem.setAttribute('decay', newDecay);
+    }
+
+    setDistance(newDistance){
+        this.elem.setAttribute('distance', newDistance);
+    }
+}
+
+class SpotLight extends Light {
+    constructor() {
+        super('spot');
+    }
+
+    setDecay(newDecay){
+        this.elem.setAttribute('decay', newDecay);
+    }
+
+    setDistance(newDistance){
+        this.elem.setAttribute('distance', newDistance);
+    }
+
+    setAngle(newAngle){
+        this.elem.setAttribute('angle', newAngle);
+    }
+
+    setPenumbra(newPenumbra){
+        this.elem.setAttribute('penumbra', newPenumbra);
+    }
+
+    setTarget(newTarget){
+        this.elem.setAttribute('target', `#${newTarget.getId()}`);
+    }
 }
 
 class Cube extends Primitive {
