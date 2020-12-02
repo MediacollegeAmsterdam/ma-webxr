@@ -4,7 +4,7 @@
 
 Met deze library kunnen jullie eenvoudig een WebXR project maken.
 
-### welke bestanden en voorbeelden zijn er:
+### Welke bestanden en voorbeelden zijn er:
 ##### index.html 
 Dit bestand laat zien hoe je fullscreen een WebXR project kunt laten zien.
 
