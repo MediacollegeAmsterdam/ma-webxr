@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ma WebXR voorbeeld -> fullscreen</title>
+    <title>Ma WebXR voorbeeld -> in pagina verwerkt</title>
     <script src="library/aframe.js"></script>
     <script src="library/ma-webxr.js" defer></script>
     <script src="app.js" defer></script>
+    <style>
+      a-scene {
+        width:700px;
+        height:400px;
+      }
+    </style>
   </head>
   <body>
   <!-- Hier begint het WebXR component -->
-  <a-scene background="color: white"></a-scene>
+  <a-scene background="color: white" embedded></a-scene>
   <!-- Hier eindigt het WebXR component -->
   </body>
 </html>
