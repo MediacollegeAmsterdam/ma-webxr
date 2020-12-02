@@ -4,11 +4,11 @@
 
 Met deze library kunnen jullie eenvoudig een WebXR project maken.
 
-|Wat kun je aanmaken in 3D |Hoe maak je hem aan|Wat kan je er mee?|
+|Wat kun je aanmaken |Hoe maak je het aan|Wat kan je er mee?|
 |---|:---|---|
-| XRImage |  | Een afbeelding/plaatje laten zien |
+| XRImage | const image = new XRImage('assets/images/sampleImage.jpg'); | Een afbeelding/plaatje laten zien |
 | Cube | const testCube = new Cube(); | Hiermee maak je een 3d box aan |
-| Sphere |  |  |
+| Sphere | const testSphere = new Sphere(); | Hiermee maak je een sphere aan |
 | Plane |  |  |
 | Cylinder |  |  |
 | Cone |  |  |
