@@ -4,7 +4,7 @@ controls.enableMovement();
 
 // create a model
 const minecraftModel = new Model('assets/models/minecraft/scene.gltf');
-minecraftModel.setPosition(0, 1.54, -5)
+minecraftModel.setPosition(0, 1.54, -5);
 minecraftModel.setScale(0.1, 0.1, 0.1);
 minecraftModel.setRotation(0, -36.95, 0);
 
